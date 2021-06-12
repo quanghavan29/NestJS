@@ -4,7 +4,6 @@ import { User } from './entities/user.entity';
 import { UserModule } from "./module/user.module";
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
-import { AuthModule } from './module/auth.module';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 
@@ -39,7 +38,6 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
         synchronize: true,
       }),
       UserModule,
-      AuthModule,
   ],
   controllers: [],
   providers: [],

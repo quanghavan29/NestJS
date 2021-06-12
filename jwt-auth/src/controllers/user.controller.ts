@@ -4,7 +4,7 @@ import { UserService } from "../service/user.service";
 import * as bcrypt from "bcrypt";
 import { JwtService } from "@nestjs/jwt";
 
-@Controller('/api/jwt/user')
+@Controller('/api/user')
 
 export class UserController {
 
@@ -60,12 +60,7 @@ export class UserController {
         return user;
     }
 
-    // verify send mail
-    @Get('/send-mail')
-    async sendMail(): Promise<void> {
-        return this.userService.senmail();
-    }
-
+    // verify account
     @Get('/confirm-account/:email')
     async verifyAccount(@Param('email') email: string): Promise<any> {
         // find user by email request
@@ -80,11 +75,5 @@ export class UserController {
         user.verify = true;
         return this.userService.updateVerify(user);
     }
-
-    // // verify send mail
-    // @Get('/send-mail-template')
-    // async sendMailTemplate(): Promise<void> {
-    //     return this.userService.senMailTemplate();
-    // }
 
 }
